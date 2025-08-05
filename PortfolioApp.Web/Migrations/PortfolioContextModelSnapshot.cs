@@ -11,7 +11,7 @@ using PortfolioApp.Web.Context;
 namespace PortfolioApp.Web.Migrations
 {
     [DbContext(typeof(PortfolioContext))]
-    partial class PortflioContextModelSnapshot : ModelSnapshot
+    partial class PortfolioContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
