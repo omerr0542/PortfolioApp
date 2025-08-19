@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCoreGeneratedDocument;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PortfolioApp.Web.Context;
@@ -45,6 +46,38 @@ namespace PortfolioApp.Web.Controllers
                                       Text = x.CategoryName,
                                       Value = x.CategoryId.ToString()
                                   }).ToList();
+        }
+
+
+        [HttpGet]
+        public IActionResult UpdateProject(int id)
+        {
+            var project = context.Projects.Find(id);
+            CategoryDropdownList();
+            return View(project);
+
+        }
+
+        [HttpPost]
+        public IActionResult UpdateProject(Project project)
+        {
+            if (!ModelState.IsValid)
+            {
+                CategoryDropdownList();
+                return View(project);
+            }
+
+            context.Projects.Update(project);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DeleteProject(int id)
+        {
+            var project = context.Projects.Find(id);
+            context.Projects.Remove(project);
+            context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
