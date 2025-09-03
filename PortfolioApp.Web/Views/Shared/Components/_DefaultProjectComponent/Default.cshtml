@@ -31,19 +31,19 @@
                 {
                     @foreach (var project in category.Projects)
                     {
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-@category.CategoryId">
-                            <img src="@project.ImageUrl" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>@project.ProjectName</h4>
-                                <p>@project.Description</p>
-                                <a href="@project.ImageUrl" title="@project.ProjectName" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a href="@project.GitHubUrl" title="Github Linki" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                        <a href="@project.GitHubUrl">
+                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-@category.CategoryId">
+                                <img src="@project.ImageUrl" class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <h4>@project.ProjectName</h4>
+                                    <p>@project.Description</p>
+                                    <a href="@project.ImageUrl" title="@project.ProjectName" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                    <a href="@project.GitHubUrl" title="Github Linki" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                </div>
                             </div>
-                        </div>
-
+                        </a>
                     }
                 }
-
             </div><!-- End Portfolio Container -->
 
         </div>

@@ -1,0 +1,56 @@
+﻿@model List<Skill>
+@*
+    _DefaultSkillsComponent
+*@
+
+<section id="skills" class="skills section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Yetkinlikler</h2>
+        <p>Aşağıdaki konular benim profosyonel hayatımda kullandığım teknolojiler hakkında bilgi vermektedir.</p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row skills-content skills-animation">
+
+            <div class="col-lg-6">
+
+                @foreach (var skill in Model)
+                {
+                    if (skill.SkillId % 2 == 0)
+                    {
+                        <div class="progress">
+                            <span class="skill"><span>@skill.Title</span> <i class="val">@skill.Percentage%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="@skill.Percentage" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    }
+                }
+
+                
+
+            </div>
+
+            <div class="col-lg-6">
+                @foreach (var skill in Model)
+                {
+                    if (skill.SkillId % 2 == 1)
+                    {
+                        <div class="progress">
+                            <span class="skill"><span>@skill.Title</span> <i class="val">@skill.Percentage%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="@skill.Percentage" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
